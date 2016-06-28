@@ -5,7 +5,7 @@ import pl.looksoft.lsportfolio.activities.applist.AppList;
 import pl.looksoft.lsportfolio.application.inject.ApplicationComponent;
 import pl.looksoft.lsportfolio.base.inject.PerActivity;
 
-@Component(dependencies = ApplicationComponent.class)
+@Component(dependencies = ApplicationComponent.class, modules = AppListModule.class)
 @PerActivity
 public interface AppListComponent {
 

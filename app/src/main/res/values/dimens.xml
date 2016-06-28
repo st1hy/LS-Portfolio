@@ -7,4 +7,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="nav_action_title_size">28sp</dimen>
+    <dimen name="app_list_item_image_size">100dp</dimen>
+    <dimen name="app_list_item_text_size">20sp</dimen>
 </resources>

@@ -3,7 +3,6 @@ package pl.looksoft.lsportfolio.base;
 import android.util.Log;
 
 import rx.Subscriber;
-import rx.android.BuildConfig;
 
 public class SimpleSubscriber<T> extends Subscriber<T> {
 
@@ -14,7 +13,7 @@ public class SimpleSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        if (BuildConfig.DEBUG) Log.e("Subscription", "Error", e);
+        Log.e("Subscription", "Error", e);
     }
 
     @Override
