@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,16 +26,20 @@ public class Contacts extends AppCompatActivity implements OnNavigationItemSelec
     @BindView(R.id.nav_view)
     NavigationView navigationView;
 
+    @BindView(R.id.contact_web_view)
+    WebView webview;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.contacts_activity);
+        setContentView(R.layout.contact_activity);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
         checkNotNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         navigationView.setNavigationItemSelectedListener(this);
+
+        loadUrl();
     }
 
     @Override
@@ -49,5 +54,9 @@ public class Contacts extends AppCompatActivity implements OnNavigationItemSelec
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    void loadUrl() {
+        webview.loadUrl(getString(R.string.contact_view_url));
     }
 }

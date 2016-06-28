@@ -12,4 +12,4 @@
     android:background="@color/ls_primary"
     app:itemTextColor="@android:color/white"
     app:menu="@menu/app_list_activity_drawer"
-    tools:showIn="@layout/contacts_activity" />
+    tools:showIn="@layout/app_list_activity" />

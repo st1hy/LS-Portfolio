@@ -11,11 +11,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="pl.looksoft.lsportfolio.AppList"
-    tools:showIn="@layout/contacts_app_bar">
+    tools:showIn="@layout/contact_app_bar">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World"/>
+    <WebView
+        android:id="@+id/contact_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

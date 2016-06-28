@@ -20,6 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/contacts_content" />
+    <include layout="@layout/contact_content" />
 
 </android.support.design.widget.CoordinatorLayout>
