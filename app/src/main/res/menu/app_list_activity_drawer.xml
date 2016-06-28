@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_applications"
+            android:title="@string/nav_app_list"/>
+        <item
+            android:id="@+id/nav_contact"
+            android:title="@string/nav_contact" />
+    </group>
+</menu>
