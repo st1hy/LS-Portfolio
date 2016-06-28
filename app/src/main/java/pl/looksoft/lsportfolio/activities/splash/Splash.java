@@ -1,4 +1,4 @@
-package pl.looksoft.lsportfolio;
+package pl.looksoft.lsportfolio.activities.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.concurrent.TimeUnit;
 
+import pl.looksoft.lsportfolio.R;
+import pl.looksoft.lsportfolio.activities.applist.AppList;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;

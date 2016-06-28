@@ -1,4 +1,4 @@
-package pl.looksoft.lsportfolio;
+package pl.looksoft.lsportfolio.activities.contact;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +14,12 @@ import android.webkit.WebView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pl.looksoft.lsportfolio.R;
+import pl.looksoft.lsportfolio.activities.applist.AppList;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-public class Contacts extends AppCompatActivity implements OnNavigationItemSelectedListener {
+public class Contact extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

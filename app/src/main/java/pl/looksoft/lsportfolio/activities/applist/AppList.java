@@ -1,4 +1,4 @@
-package pl.looksoft.lsportfolio;
+package pl.looksoft.lsportfolio.activities.applist;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,14 +7,25 @@ import android.support.design.widget.NavigationView.OnNavigationItemSelectedList
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pl.looksoft.lsportfolio.R;
+import pl.looksoft.lsportfolio.activities.applist.inject.AppListComponent;
+import pl.looksoft.lsportfolio.activities.applist.inject.DaggerAppListComponent;
+import pl.looksoft.lsportfolio.activities.contact.Contact;
+import pl.looksoft.lsportfolio.base.BaseActivity;
+import pl.looksoft.lsportfolio.base.SimpleSubscriber;
+import pl.looksoft.lsportfolio.network.AppsResponse;
+import pl.looksoft.lsportfolio.network.LooksoftService;
+import rx.android.schedulers.AndroidSchedulers;
 
-public class AppList extends AppCompatActivity implements OnNavigationItemSelectedListener {
+public class AppList extends BaseActivity implements OnNavigationItemSelectedListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -25,11 +36,26 @@ public class AppList extends AppCompatActivity implements OnNavigationItemSelect
 
     ActionBarDrawerToggle toggle;
 
+    AppListComponent component;
+
+    @Inject
+    LooksoftService service;
+
+    protected AppListComponent getComponent() {
+        if (component == null) {
+            component = DaggerAppListComponent.builder()
+                    .applicationComponent(getAppComponent())
+                    .build();
+        }
+        return component;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_list_activity);
         ButterKnife.bind(this);
+        getComponent().inject(this);
         setSupportActionBar(toolbar);
 
         toggle = new ActionBarDrawerToggle(
@@ -42,6 +68,16 @@ public class AppList extends AppCompatActivity implements OnNavigationItemSelect
         super.onStart();
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        service.getApps(getString(R.string.lang_code))
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SimpleSubscriber<AppsResponse>() {
+                    @Override
+                    public void onNext(AppsResponse appsResponse) {
+                        super.onNext(appsResponse);
+                        Log.d("Apps", appsResponse.toString());
+                    }
+                });
     }
 
     @Override
@@ -64,7 +100,7 @@ public class AppList extends AppCompatActivity implements OnNavigationItemSelect
         int id = item.getItemId();
 
         if (id == R.id.nav_contact) {
-            startActivity(new Intent(this, Contacts.class));
+            startActivity(new Intent(this, Contact.class));
         }
 
         drawer.closeDrawer(GravityCompat.START);
