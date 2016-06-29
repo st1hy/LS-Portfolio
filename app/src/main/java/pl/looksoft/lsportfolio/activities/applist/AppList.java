@@ -15,6 +15,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.jakewharton.rxbinding.internal.Functions;
+import com.jakewharton.rxbinding.view.RxView;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -104,7 +107,14 @@ public class AppList extends BaseActivity implements OnNavigationItemSelectedLis
     protected void onResume() {
         super.onResume();
         subscriptions.add(refreshes(refreshLayout).subscribe(refreshAction));
-        refresh();
+        //Workaround for not showing refresh indicator in onResume
+        RxView.preDraws(refreshLayout, Functions.FUNC0_ALWAYS_TRUE).subscribe(new SimpleSubscriber<Void>() {
+            @Override
+            public void onNext(Void aVoid) {
+                unsubscribe();
+                refresh();
+            }
+        });
     }
 
     private void refresh() {

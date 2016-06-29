@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#3F51B5</color>
     <color name="ls_primary">#4cc88e</color>
     <color name="nav_separator">#20000000</color>
+    <color name="app_list_color_pressed">@color/ls_primary</color>
+    <color name="app_list_color_darker">#f1f1f2</color>
 </resources>

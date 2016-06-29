@@ -55,6 +55,8 @@ public class AppsAdapter extends RecyclerView.Adapter<AppViewHolder> implements 
         picasso.load(app.getIcon()).centerCrop().fit().into(imageView);
         holder.getName().setText(app.getName());
         holder.setApp(app);
+        holder.setBackground(position % 2 == 0 ? R.drawable.app_list_item_background_darker :
+                R.drawable.app_list_item_background);
     }
 
     @Override
