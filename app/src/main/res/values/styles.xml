@@ -27,6 +27,6 @@
     </style>
 
     <style name="trimmed_text">
-        <item name="trimLength">100</item>
+        <item name="trimLength">200</item>
     </style>
 </resources>
