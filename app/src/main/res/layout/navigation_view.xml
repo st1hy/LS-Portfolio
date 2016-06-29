@@ -11,5 +11,8 @@
     app:headerLayout="@layout/navigation_header"
     android:background="@color/ls_primary"
     app:itemTextColor="@android:color/white"
+    app:itemBackground="@drawable/nav_background"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
     app:menu="@menu/app_list_activity_drawer"
     tools:showIn="@layout/app_list_activity" />
