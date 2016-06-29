@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/detail_gallery_image"
-    android:layout_height="@dimen/detail_gallery_image_height"
-    android:layout_width="@dimen/detail_gallery_image_width"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:scaleType="fitCenter"
     android:contentDescription="@string/detail_gallery_image_description"
     android:orientation="vertical"
     android:layout_margin="8dp"/>

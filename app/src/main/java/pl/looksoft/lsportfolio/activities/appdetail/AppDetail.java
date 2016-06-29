@@ -71,7 +71,7 @@ public class AppDetail extends BaseActivity {
     @Inject
     Picasso picasso;
     @Inject
-    AppImagesAdapter adapter;
+    AppGalleryAdapter adapter;
 
     protected AppDetailComponent getComponent() {
         if (component == null) {

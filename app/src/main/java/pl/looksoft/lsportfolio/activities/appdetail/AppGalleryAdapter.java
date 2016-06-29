@@ -15,14 +15,14 @@ import javax.inject.Inject;
 
 import pl.looksoft.lsportfolio.R;
 
-public class AppImagesAdapter extends RecyclerView.Adapter<GalleryImageViewHolder> {
+public class AppGalleryAdapter extends RecyclerView.Adapter<GalleryImageViewHolder> {
 
     final Picasso picasso;
 
     List<String> gallery = Collections.emptyList();
 
     @Inject
-    public AppImagesAdapter(Picasso picasso) {
+    public AppGalleryAdapter(Picasso picasso) {
         this.picasso = picasso;
     }
 
@@ -46,7 +46,9 @@ public class AppImagesAdapter extends RecyclerView.Adapter<GalleryImageViewHolde
     public void onBindViewHolder(GalleryImageViewHolder holder, int position) {
         ImageView imageView = holder.getImageView();
         picasso.cancelRequest(imageView);
-        picasso.load(gallery.get(position)).into(imageView);
+        picasso.load(gallery.get(position))
+                .resizeDimen(R.dimen.detail_gallery_image_width, R.dimen.detail_gallery_image_height)
+                .into(imageView);
     }
 
     @Override

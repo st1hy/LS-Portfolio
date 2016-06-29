@@ -7,11 +7,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="nav_action_title_size">28sp</dimen>
-    <dimen name="app_list_item_image_size">100dp</dimen>
+    <dimen name="app_list_item_image_size">80dp</dimen>
     <dimen name="app_list_item_text_size">20sp</dimen>
     <dimen name="detail_image_size">80dp</dimen>
     <dimen name="detail_title_text_size">20sp</dimen>
     <dimen name="detail_description_text_size">14sp</dimen>
     <dimen name="detail_gallery_image_height">300dp</dimen>
-    <dimen name="detail_gallery_image_width">200dp</dimen>
+    <dimen name="detail_gallery_image_width">0dp</dimen>
 </resources>
