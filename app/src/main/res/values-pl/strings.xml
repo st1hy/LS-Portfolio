@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LS  Portfolio</string>
+    <string name="detail_gallery_image_description">Zdjęcie aplikacji</string>
+    <string name="lang_code">pl</string>
+    <string name="nav_app_list">Aplikacje</string>
+    <string name="nav_contact">Kontakt</string>
+    <string name="navigation_drawer_close">Zamknij panel nawigacyjny</string>
+    <string name="navigation_drawer_open">Otwórz panel nawigacyjny</string>
+    <string name="show_less"> Zwiń</string>
+    <string name="show_more">Więcej</string>
+</resources>
