@@ -36,6 +36,14 @@ import rx.subscriptions.CompositeSubscription;
 
 public class AppList extends BaseActivity implements OnNavigationItemSelectedListener, AppListView {
 
+    final CompositeSubscription subscriptions = new CompositeSubscription();
+    final Action1<Void> refreshAction = new Action1<Void>() {
+        @Override
+        public void call(Void aVoid) {
+            refresh();
+        }
+    };
+
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.drawer_layout)
@@ -55,8 +63,6 @@ public class AppList extends BaseActivity implements OnNavigationItemSelectedLis
     LooksoftService service;
     @Inject
     AppsAdapter adapter;
-
-    final CompositeSubscription subscriptions = new CompositeSubscription();
 
     protected AppListComponent getComponent() {
         if (component == null) {
@@ -90,16 +96,14 @@ public class AppList extends BaseActivity implements OnNavigationItemSelectedLis
         super.onStart();
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        subscriptions.add(RxSwipeRefreshLayout.refreshes(refreshLayout)
-                .subscribe(new Action1<Void>() {
-                    @Override
-                    public void call(Void aVoid) {
-                        refresh();
-                    }
-                }));
-        refresh();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        subscriptions.add(RxSwipeRefreshLayout.refreshes(refreshLayout).subscribe(refreshAction));
+        refresh();
+    }
 
     private void refresh() {
         refreshLayout.setRefreshing(true);
