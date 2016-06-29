@@ -32,7 +32,15 @@
             android:theme="@style/AppTheme.NoActionBar">
 
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.applist.AppList"/>
+                android:value="pl.looksoft.lsportfolio.activities.applist.AppList"/>
+        </activity>
+        <activity
+            android:name=".activities.appdetail.AppDetail"
+            android:parentActivityName=".activities.applist.AppList"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="pl.looksoft.lsportfolio.activities.applist.AppList"/>
         </activity>
     </application>
 

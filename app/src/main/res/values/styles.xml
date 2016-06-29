@@ -25,4 +25,8 @@
     <style name="ActivityContent">
         <item name="android:foreground">?android:windowContentOverlay</item>
     </style>
+
+    <style name="trimmed_text">
+        <item name="trimLength">100</item>
+    </style>
 </resources>

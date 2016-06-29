@@ -32,7 +32,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public Picasso providePicasso() {
-        return Picasso.with(application.getApplicationContext());
+    public Picasso providePicasso(Context context) {
+        return Picasso.with(context);
     }
 }

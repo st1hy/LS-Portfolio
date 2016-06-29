@@ -10,5 +10,5 @@ public interface LooksoftService {
     Observable<AppsResponse> getApps(@Query("lang") String lang);
 
     @GET("api/product/{id}")
-    Observable<AppsResponse> getAppDetails(@Path("id") int id);
+    Observable<DetailResponse> getAppDetails(@Path("id") int id, @Query("lang") String lang);
 }

@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppViewHolder> implements 
         AppsResponse.App app = apps.get(position);
         picasso.load(app.getIcon()).centerCrop().fit().into(imageView);
         holder.getName().setText(app.getName());
-        holder.setAppId(app.getId());
+        holder.setApp(app);
     }
 
     @Override
@@ -61,7 +63,7 @@ public class AppsAdapter extends RecyclerView.Adapter<AppViewHolder> implements 
     }
 
     @Override
-    public void onItemClicked(int id) {
-        view.openDetailActivity(id);
+    public void onItemClicked(AppsResponse.App app) {
+        view.openDetailActivity(Parcels.wrap(app));
     }
 }

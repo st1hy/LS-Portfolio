@@ -8,4 +8,7 @@
     <string name="nav_contact">Contact</string>
 
     <string name="lang_code">en</string>
+    <string name="detail_gallery_image_description">Application screenshot</string>
+    <string name="show_less">Collapse</string>
+    <string name="show_more">More</string>
 </resources>

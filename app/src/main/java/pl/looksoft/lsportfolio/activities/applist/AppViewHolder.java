@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.looksoft.lsportfolio.R;
+import pl.looksoft.lsportfolio.network.AppsResponse;
 
 public class AppViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.app_list_item_name)
@@ -16,7 +17,7 @@ public class AppViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.app_list_item_image)
     ImageView imageView;
 
-    int appId;
+    AppsResponse.App app;
     final Callback callback;
 
     public AppViewHolder(View itemView, final Callback callback) {
@@ -27,7 +28,7 @@ public class AppViewHolder extends RecyclerView.ViewHolder {
 
     @OnClick(R.id.app_list_item_root)
     public void onClicked() {
-        callback.onItemClicked(appId);
+        callback.onItemClicked(app);
     }
 
     public TextView getName() {
@@ -38,11 +39,11 @@ public class AppViewHolder extends RecyclerView.ViewHolder {
         return imageView;
     }
 
-    public void setAppId(int appId) {
-        this.appId = appId;
+    public void setApp(AppsResponse.App app) {
+        this.app = app;
     }
 
     public interface Callback {
-        void onItemClicked(int id);
+        void onItemClicked(AppsResponse.App app);
     }
 }

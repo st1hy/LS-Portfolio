@@ -2,6 +2,7 @@ package pl.looksoft.lsportfolio.activities.applist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.content.ContextCompat;
@@ -14,13 +15,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.jakewharton.rxbinding.support.v4.widget.RxSwipeRefreshLayout;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.looksoft.lsportfolio.R;
+import pl.looksoft.lsportfolio.activities.appdetail.AppDetail;
 import pl.looksoft.lsportfolio.activities.applist.inject.AppListComponent;
 import pl.looksoft.lsportfolio.activities.applist.inject.AppListModule;
 import pl.looksoft.lsportfolio.activities.applist.inject.DaggerAppListComponent;
@@ -33,6 +33,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.subscriptions.CompositeSubscription;
+
+import static com.jakewharton.rxbinding.support.v4.widget.RxSwipeRefreshLayout.refreshes;
 
 public class AppList extends BaseActivity implements OnNavigationItemSelectedListener, AppListView {
 
@@ -101,7 +103,7 @@ public class AppList extends BaseActivity implements OnNavigationItemSelectedLis
     @Override
     protected void onResume() {
         super.onResume();
-        subscriptions.add(RxSwipeRefreshLayout.refreshes(refreshLayout).subscribe(refreshAction));
+        subscriptions.add(refreshes(refreshLayout).subscribe(refreshAction));
         refresh();
     }
 
@@ -155,7 +157,9 @@ public class AppList extends BaseActivity implements OnNavigationItemSelectedLis
     }
 
     @Override
-    public void openDetailActivity(int appId) {
-        //TODO
+    public void openDetailActivity(Parcelable appData) {
+        Intent intent = new Intent(this, AppDetail.class);
+        intent.putExtra(AppDetail.EXTRA_APP_DATA_PARCEL, appData);
+        startActivity(intent);
     }
 }

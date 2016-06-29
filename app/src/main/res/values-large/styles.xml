@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="trimmed_text">
+        <item name="trimLength">500</item>
+    </style>
+</resources>

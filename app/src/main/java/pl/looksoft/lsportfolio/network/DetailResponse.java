@@ -59,12 +59,12 @@ public class DetailResponse {
         String url;
         String image;
 
-        public void setUrl(String url) {
-            this.url = url;
+        public String getUrl() {
+            return url;
         }
 
-        public void setImage(String image) {
-            this.image = image;
+        public String getImage() {
+            return image;
         }
 
         @Override

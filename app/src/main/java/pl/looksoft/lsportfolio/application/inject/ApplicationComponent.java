@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 import pl.looksoft.lsportfolio.network.LooksoftService;
+import pl.looksoft.lsportfolio.network.NetworkModule;
 
 @Singleton
 @Component(modules = {NetworkModule.class, ApplicationModule.class})

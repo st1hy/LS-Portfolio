@@ -1,5 +1,7 @@
 package pl.looksoft.lsportfolio.network;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
 public class AppsResponse {
@@ -37,6 +39,7 @@ public class AppsResponse {
         }
     }
 
+    @Parcel
     public static class App {
         int id;
         String name;
